@@ -42,7 +42,7 @@ namespace E_Learning_Management_System.Controllers
             return BadRequest("can not add");
         }
         [HttpGet]
-        [Authorize]
+       // [Authorize]
         public IActionResult GetAll()
         {
             List<Course> courses = courseRepository.GetAllIncludeInstructor();
@@ -54,7 +54,6 @@ namespace E_Learning_Management_System.Controllers
                     CourseIncludeInstructorDTO dTO = new CourseIncludeInstructorDTO();
                     dTO.Name = course.Name;
                     dTO.ImgPath = course.ImgPath;
-                    dTO.Content = course.Content;
                     dTO.DurationInHours = course.DurationInHours;
                     dTO.InstructorName = course.Instructor.Name;
                     dTOs.Add(dTO);
